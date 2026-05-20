@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "chunky-metro",
+  "owner": {
+    "name": "Chunky Metro",
+    "email": "matt@culpepper.co"
+  },
+  "metadata": {
+    "description": "Public Claude Code plugin marketplace for the Chunky Metro org.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "discord-fleet",
+      "source": {
+        "source": "github",
+        "repo": "chunky-metro/discord-fleet"
+      },
+      "description": "Fleet-customized fork of anthropics/claude-plugins-official's discord plugin. Adds lane-emoji react conventions and telemetry-relay design spec; preserves upstream access-control surface.",
+      "keywords": ["discord", "mcp", "fleet", "communication"],
+      "license": "Apache-2.0"
+    }
+  ]
+}
