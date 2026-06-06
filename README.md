@@ -20,22 +20,36 @@ Then browse and install plugins:
 | Plugin | Description |
 | :----- | :---------- |
 | [discord-fleet](https://github.com/chunky-metro/discord-fleet) | Fleet-customized Discord MCP plugin (fork of `claude-plugins-official/discord`). |
+| [handoff](./plugins/handoff) | `/handoff` command that pushes URLs, summaries, or inferred context to `mculp/handoff` for cross-device pickup. |
 
 ## Layout
 
 ```
 .claude-plugin/
-  marketplace.json    # the catalog
-README.md             # this file
-LICENSE               # MIT
+  marketplace.json      # the catalog
+plugins/                # bundled plugins (path source)
+  <plugin-name>/
+    .claude-plugin/
+      plugin.json
+    commands/ | agents/ | hooks/ | skills/ | ...
+README.md               # this file
+LICENSE                 # MIT
 ```
 
-Plugins live in their own repos (`source: {source: "github", repo: "..."}`) rather than as subdirectories of this marketplace, so each plugin keeps its own versioning, issues, and release cycle.
+Plugins can be either **bundled** as subdirectories of `plugins/` (path source — single repo, single PR ships everything) or **external** as their own `chunky-metro/<plugin-slug>` repo (github source — independent versioning and release cycle). Bundled is the default for small / single-author plugins; promote to external when a plugin grows its own contributor base or release cadence.
 
 ## Adding a plugin
 
+**Bundled** (default):
+
+1. Create `plugins/<plugin-slug>/` with `.claude-plugin/plugin.json`, plus whatever components it needs (`commands/`, `agents/`, `hooks/`, `skills/`).
+2. Add an entry to `.claude-plugin/marketplace.json` with `"source": {"source": "path", "path": "./plugins/<plugin-slug>"}`.
+3. Bump `metadata.version` in the same PR.
+
+**External**:
+
 1. Plugin lives in its own repo under `chunky-metro/<plugin-slug>`.
-2. Open a PR against this repo adding an entry to `.claude-plugin/marketplace.json`.
+2. Open a PR against this repo adding an entry with `"source": {"source": "github", "repo": "chunky-metro/<plugin-slug>"}`.
 3. Bump `metadata.version` in the same PR.
 
 See [Anthropic's plugin marketplace docs](https://code.claude.com/docs/en/plugin-marketplaces.md) for the full schema.

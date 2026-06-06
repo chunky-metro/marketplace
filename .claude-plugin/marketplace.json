@@ -7,7 +7,7 @@
   },
   "metadata": {
     "description": "Public Claude Code plugin marketplace for the Chunky Metro org.",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "plugins": [
     {
@@ -19,6 +19,16 @@
       "description": "Fleet-customized fork of anthropics/claude-plugins-official's discord plugin. Adds lane-emoji react conventions and telemetry-relay design spec; preserves upstream access-control surface.",
       "keywords": ["discord", "mcp", "fleet", "communication"],
       "license": "Apache-2.0"
+    },
+    {
+      "name": "handoff",
+      "source": {
+        "source": "path",
+        "path": "./plugins/handoff"
+      },
+      "description": "Hand off the current thing (URL, summary, file, or inferred context) to mculp/handoff so you can pick it up on another device. Adds a /handoff slash command.",
+      "keywords": ["handoff", "cross-device", "context", "workflow"],
+      "license": "MIT"
     }
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "handoff",
+  "version": "0.1.0",
+  "description": "Hand off the current thing (URL, summary, file, or inferred context) to mculp/handoff so you can pick it up on another device.",
+  "author": {
+    "name": "rhiza",
+    "email": "matt@culpepper.co"
+  },
+  "homepage": "https://github.com/chunky-metro/marketplace/tree/main/plugins/handoff",
+  "repository": "https://github.com/chunky-metro/marketplace",
+  "license": "MIT",
+  "keywords": ["handoff", "cross-device", "context", "workflow"]
+}
